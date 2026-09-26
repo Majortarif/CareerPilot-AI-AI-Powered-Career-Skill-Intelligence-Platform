@@ -4,9 +4,8 @@ I have built a frontend-only project called:
 
 # CareerPilot AI — AI-Powered Career & Skill Intelligence Platform
 
-I want you to create a **premium, professional, visually impressive GitHub README.md** for this project.
 
-The README should make the project feel like a polished modern SaaS product while remaining completely honest about its technical implementation.
+
 
 ---
 
