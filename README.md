@@ -1,4 +1,4 @@
-You are a senior technical writer, frontend engineer, product designer, and GitHub profile optimization expert.
+
 
 I have built a frontend-only project called:
 
