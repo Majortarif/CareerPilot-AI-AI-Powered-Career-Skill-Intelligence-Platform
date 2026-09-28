@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Career Profile · CareerPilot AI</title>
+  <meta name="description" content="Manage your education, target role, summary and skill levels.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/profile.js"></script>
+</head>
+<body data-page="profile">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Career</p>
+            <h1 class="page-title">Career Profile</h1>
+            <p class="page-subtitle">Your education, target role and skills power every analysis in CareerPilot AI.</p>
+          </div>
+        </div>
+
+        <div data-page-body class="grid gap-4 xl:grid-cols-3">
+          <div class="grid min-w-0 grid-cols-1 gap-4 xl:col-span-2">
+            <form id="profile-form" class="grid gap-4" novalidate>
+              <section class="card card-pad" aria-labelledby="sec-personal">
+                <div class="card-header"><div><h2 class="card-title" id="sec-personal">Personal details & target</h2><p class="card-subtitle">Fields marked * are required.</p></div></div>
+                <div id="personal-fields" class="grid gap-4 sm:grid-cols-2">
+                  <div class="skeleton h-16"></div><div class="skeleton h-16"></div><div class="skeleton h-16"></div><div class="skeleton h-16"></div>
+                </div>
+              </section>
+
+              <section class="card card-pad" aria-labelledby="sec-summary">
+                <div class="card-header"><div><h2 class="card-title" id="sec-summary">Professional summary</h2><p class="card-subtitle">Two to four sentences about who you are and what you want next.</p></div></div>
+                <div class="field">
+                  <label class="label" for="summary">Summary</label>
+                  <textarea class="textarea" id="summary" name="summary" maxlength="1200" aria-describedby="summary-count" placeholder="e.g. CSE graduate focused on machine learning…"></textarea>
+                  <p class="hint" id="summary-count">0 / 1200</p>
+                </div>
+              </section>
+
+              <section class="card card-pad" aria-labelledby="sec-education">
+                <div class="card-header">
+                  <div><h2 class="card-title" id="sec-education">Education</h2><p class="card-subtitle">Degrees, diplomas or bootcamps.</p></div>
+                  <button type="button" class="btn btn-secondary btn-sm" id="add-education"><i data-lucide="plus" aria-hidden="true"></i>Add</button>
+                </div>
+                <div id="education-list" class="grid gap-3"><div class="skeleton h-28"></div></div>
+              </section>
+
+              <section class="card card-pad" aria-labelledby="sec-links">
+                <div class="card-header"><div><h2 class="card-title" id="sec-links">Professional links</h2><p class="card-subtitle">Full URLs starting with https://</p></div></div>
+                <div id="link-fields" class="grid gap-4 md:grid-cols-3"></div>
+              </section>
+
+              <div class="card card-pad flex flex-wrap items-center justify-between gap-3">
+                <p class="text-sm text-muted" id="save-status" aria-live="polite">Changes are saved in this browser only.</p>
+                <button type="submit" class="btn btn-primary" id="save-profile"><i data-lucide="save" aria-hidden="true"></i>Save profile</button>
+              </div>
+            </form>
+
+            <section class="card card-pad scroll-mt-24" id="skills" aria-labelledby="sec-skills">
+              <div class="card-header">
+                <div><h2 class="card-title" id="sec-skills">Skills</h2><p class="card-subtitle">Levels: 🟢 70+ strong · 🟡 30–69 partial · 🔴 below 30. Changes save automatically.</p></div>
+                <span class="badge badge-brand" id="skill-count">0 skills</span>
+              </div>
+              <form id="skill-form" class="grid gap-3 rounded-2xl bg-surface-2/60 p-4 md:grid-cols-12 md:items-end" novalidate>
+                <div class="field md:col-span-4">
+                  <label class="label" for="skill-name">Skill <span class="req">*</span></label>
+                  <input class="input" id="skill-name" name="name" list="skill-dictionary" autocomplete="off" placeholder="e.g. Docker" aria-describedby="err-skill-name">
+                  <datalist id="skill-dictionary"></datalist>
+                  <p class="field-error" id="err-skill-name" data-error-for="name"></p>
+                </div>
+                <div class="field md:col-span-3">
+                  <label class="label" for="skill-category">Category</label>
+                  <select class="select" id="skill-category" name="category"></select>
+                </div>
+                <div class="field md:col-span-3">
+                  <label class="label" for="skill-level">Level <output id="skill-level-out" for="skill-level" class="ml-1 font-semibold text-brand">50%</output></label>
+                  <input type="range" class="range" id="skill-level" name="level" min="0" max="100" step="5" value="50" style="--pct:50%">
+                </div>
+                <div class="md:col-span-2"><button type="submit" class="btn btn-primary btn-block"><i data-lucide="plus" aria-hidden="true"></i>Add</button></div>
+              </form>
+
+              <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+                <div class="input-icon flex-1">
+                  <i data-lucide="search" aria-hidden="true"></i>
+                  <label for="skill-search" class="sr-only">Search skills</label>
+                  <input class="input" id="skill-search" type="search" placeholder="Search skills">
+                </div>
+                <label for="skill-filter" class="sr-only">Filter by category</label>
+                <select class="select sm:w-56" id="skill-filter"></select>
+              </div>
+              <p class="sr-only" id="skill-live" aria-live="polite"></p>
+              <div id="skill-list" class="mt-2"><div class="skeleton mt-3 h-14"></div><div class="skeleton mt-3 h-14"></div><div class="skeleton mt-3 h-14"></div></div>
+            </section>
+          </div>
+
+          <aside aria-label="Profile insights">
+            <div class="grid min-w-0 grid-cols-1 content-start gap-4 xl:sticky xl:top-24">
+              <section class="card card-pad" id="completion" aria-labelledby="sec-completion">
+                <div class="skeleton h-5 w-40"></div><div class="skeleton mx-auto my-6 h-36 w-36 rounded-full"></div><div class="skeleton h-24"></div>
+              </section>
+              <section class="card card-pad" id="role-skills" aria-labelledby="sec-role"><div class="skeleton h-32"></div></section>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

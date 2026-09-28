@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applications · CareerPilot AI</title>
+  <meta name="description" content="Track job applications across seven statuses with search, filters, sorting and a kanban board.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/applications.js"></script>
+</head>
+<body data-page="applications">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Tracking</p>
+            <h1 class="page-title">Application Tracker</h1>
+            <p class="page-subtitle">Keep every application, status change and note in one place.</p>
+          </div>
+          <button type="button" class="btn btn-primary" id="add-app"><i data-lucide="plus" aria-hidden="true"></i>Add application</button>
+        </div>
+
+        <div id="status-strip" class="mb-4 flex flex-wrap gap-2" aria-label="Applications by status"></div>
+
+        <section class="card card-pad mb-4" aria-label="Search, filter and sort">
+          <div class="grid gap-3 sm:grid-cols-3 xl:grid-cols-12">
+            <div class="input-icon sm:col-span-3 xl:col-span-5">
+              <i data-lucide="search" aria-hidden="true"></i>
+              <label for="q" class="sr-only">Search applications</label>
+              <input class="input" id="q" type="search" placeholder="Search role, company, location or notes">
+            </div>
+            <div class="xl:col-span-2"><label for="status-filter" class="sr-only">Filter by status</label><select class="select" id="status-filter"></select></div>
+            <div class="xl:col-span-3"><label for="sort-by" class="sr-only">Sort applications</label>
+              <select class="select" id="sort-by">
+                <option value="updated">Sort: recently updated</option>
+                <option value="applied">Sort: applied date</option>
+                <option value="company">Sort: company A–Z</option>
+                <option value="status">Sort: pipeline stage</option>
+              </select>
+            </div>
+            <div class="flex xl:col-span-2 xl:justify-end">
+              <div class="segmented w-full xl:w-auto" role="group" aria-label="View">
+                <button type="button" class="flex-1 justify-center" data-view="table" aria-pressed="true"><i data-lucide="table" aria-hidden="true"></i>Table</button>
+                <button type="button" class="flex-1 justify-center" data-view="kanban" aria-pressed="false"><i data-lucide="columns-3" aria-hidden="true"></i>Board</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <p class="sr-only" id="apps-live" aria-live="polite"></p>
+        <div data-page-body>
+          <div class="card card-pad"><div class="skeleton h-10"></div><div class="skeleton mt-3 h-14"></div><div class="skeleton mt-3 h-14"></div><div class="skeleton mt-3 h-14"></div><div class="skeleton mt-3 h-14"></div></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

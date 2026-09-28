@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · CareerPilot AI</title>
+  <meta name="description" content="Career readiness, skills, applications and learning progress at a glance.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
+</head>
+<body data-page="dashboard">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h1 class="page-title" id="greeting">Welcome back</h1>
+            <p class="page-subtitle" id="greeting-sub">Your career intelligence at a glance.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <a href="job-analyzer.html" class="btn btn-secondary"><i data-lucide="briefcase" aria-hidden="true"></i>Analyze a job</a>
+            <a href="cv-analyzer.html" class="btn btn-primary"><i data-lucide="file-search" aria-hidden="true"></i>Analyze CV</a>
+          </div>
+        </div>
+
+        <div data-page-body>
+          <section class="grid gap-4 xl:grid-cols-3" aria-label="Key metrics">
+            <div id="readiness" class="card card-pad">
+              <div class="skeleton h-5 w-40"></div>
+              <div class="skeleton mx-auto my-6 h-40 w-40 rounded-full"></div>
+              <div class="skeleton h-4 w-full"></div>
+              <div class="skeleton mt-3 h-4 w-3/4"></div>
+            </div>
+            <div id="kpis" class="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:col-span-2">
+              <div class="skeleton skeleton-card h-32"></div><div class="skeleton skeleton-card h-32"></div>
+              <div class="skeleton skeleton-card h-32"></div><div class="skeleton skeleton-card h-32"></div>
+              <div class="skeleton skeleton-card h-32"></div><div class="skeleton skeleton-card h-32"></div>
+            </div>
+          </section>
+
+          <section class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3" aria-label="Charts">
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Skill profile</h2><p class="card-subtitle">Average level per category</p></div></div>
+              <div id="chart-skills" class="chart-box"><div class="skeleton h-full"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Application pipeline</h2><p class="card-subtitle">Applications by current status</p></div></div>
+              <div id="chart-pipeline" class="chart-box"><div class="skeleton h-full"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Learning progress</h2><p class="card-subtitle">Roadmap hours completed</p></div></div>
+              <div id="chart-learning" class="chart-box"><div class="skeleton h-full"></div></div>
+            </article>
+          </section>
+
+          <section class="mt-4 grid gap-4 xl:grid-cols-3">
+            <article class="card card-pad reveal xl:col-span-2">
+              <div class="card-header">
+                <div><h2 class="card-title">Recent activity</h2><p class="card-subtitle">Latest changes across your workspace</p></div>
+                <a class="btn btn-ghost btn-sm" href="analytics.html">View analytics<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              </div>
+              <div id="activity"><div class="skeleton h-12"></div><div class="skeleton mt-3 h-12"></div><div class="skeleton mt-3 h-12"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Suggested next steps</h2><p class="card-subtitle">Rule-based suggestions from your data</p></div></div>
+              <div id="next-steps"><div class="skeleton h-14"></div><div class="skeleton mt-3 h-14"></div><div class="skeleton mt-3 h-14"></div></div>
+            </article>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

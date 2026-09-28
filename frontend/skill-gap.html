@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skill Gap · CareerPilot AI</title>
+  <meta name="description" content="Compare your skills with a target job: strong, partial and missing skills with a prototype compatibility score.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/skill-gap.js"></script>
+</head>
+<body data-page="skill-gap">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Career</p>
+            <h1 class="page-title">Skill Gap Intelligence</h1>
+            <p class="page-subtitle">See which job requirements you already meet and which to learn next.</p>
+          </div>
+          <div class="field w-full sm:w-80" id="job-picker" hidden>
+            <label class="label" for="job-select">Target job</label>
+            <select class="select" id="job-select"></select>
+          </div>
+        </div>
+
+        <div data-page-body>
+          <div class="grid gap-4 xl:grid-cols-3">
+            <div class="card card-pad"><div class="skeleton mx-auto h-40 w-40 rounded-full"></div><div class="skeleton mt-6 h-20"></div></div>
+            <div class="card card-pad xl:col-span-2"><div class="skeleton h-10"></div><div class="skeleton mt-3 h-12"></div><div class="skeleton mt-3 h-12"></div><div class="skeleton mt-3 h-12"></div><div class="skeleton mt-3 h-12"></div></div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

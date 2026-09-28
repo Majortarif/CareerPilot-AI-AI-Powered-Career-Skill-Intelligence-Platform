@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV Analyzer · CareerPilot AI</title>
+  <meta name="description" content="Simulated CV analysis: skills, strengths, suggestions and missing sections.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/cv-analyzer.js"></script>
+</head>
+<body data-page="cv-analyzer">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Career</p>
+            <h1 class="page-title">CV Analyzer</h1>
+            <p class="page-subtitle">Get structured, rule-based feedback on your CV: detected skills, strengths, suggestions and missing sections.</p>
+          </div>
+          <p id="last-cv" class="text-sm text-muted"></p>
+        </div>
+
+        <div class="notice mb-4" role="note">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          <div><strong>Simulated. No document is uploaded to any server.</strong>
+            <span class="text-muted">The prototype reads only a PDF's name and size, then analyzes a built-in sample CV profile. Paste your CV text for a personalised result.</span></div>
+        </div>
+
+        <div data-page-body>
+          <section id="input-panel" class="card card-pad" aria-labelledby="input-title">
+            <div class="card-header flex-wrap">
+              <div><h2 class="card-title" id="input-title">Your CV</h2><p class="card-subtitle">Upload a PDF or paste plain text.</p></div>
+              <div class="segmented" role="tablist" aria-label="Input method">
+                <button type="button" role="tab" id="tab-upload" aria-controls="panel-upload" aria-selected="true"><i data-lucide="upload" aria-hidden="true"></i>Upload PDF</button>
+                <button type="button" role="tab" id="tab-paste" aria-controls="panel-paste" aria-selected="false" tabindex="-1"><i data-lucide="clipboard-type" aria-hidden="true"></i>Paste text</button>
+              </div>
+            </div>
+
+            <div id="panel-upload" role="tabpanel" aria-labelledby="tab-upload">
+              <label class="dropzone" id="dropzone" for="cv-file">
+                <span class="dropzone-icon"><i data-lucide="file-up" aria-hidden="true"></i></span>
+                <span class="text-base font-semibold">Drag & drop your CV here</span>
+                <span class="text-sm text-muted">or <span class="link">browse files</span> · PDF only · max 10 MB</span>
+                <input type="file" id="cv-file" accept="application/pdf,.pdf" aria-describedby="file-error file-hint">
+                <span class="sr-only" id="file-hint">Only the file name and size are read. Nothing is uploaded.</span>
+              </label>
+              <p class="field-error mt-3" id="file-error" role="alert"></p>
+              <div id="file-card" class="mt-4" hidden></div>
+            </div>
+
+            <div id="panel-paste" role="tabpanel" aria-labelledby="tab-paste" hidden>
+              <div class="field">
+                <label class="label" for="cv-text">CV text</label>
+                <textarea class="textarea" id="cv-text" rows="12" style="min-height:260px" placeholder="Paste the text of your CV here…" aria-describedby="cv-text-hint err-cv-text"></textarea>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <p class="hint" id="cv-text-hint"><span id="cv-text-count">0</span> words · stays in your browser</p>
+                  <button type="button" class="btn btn-ghost btn-sm" id="use-sample-text"><i data-lucide="file-text" aria-hidden="true"></i>Insert sample CV text</button>
+                </div>
+                <p class="field-error" id="err-cv-text"></p>
+              </div>
+            </div>
+
+            <div class="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5">
+              <button type="button" class="btn btn-ghost" id="try-sample"><i data-lucide="sparkles" aria-hidden="true"></i>Try the sample CV</button>
+              <button type="button" class="btn btn-primary" id="analyze-btn"><i data-lucide="scan-search" aria-hidden="true"></i>Analyze CV</button>
+            </div>
+          </section>
+
+          <section id="processing" class="card mt-4" hidden aria-live="polite" aria-busy="true">
+            <div class="scanner">
+              <div class="scan-doc" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span class="scan-line"></span></div>
+              <div class="text-center"><p class="font-semibold">Analyzing your CV…</p><p class="text-sm text-muted">Simulated processing in your browser</p></div>
+              <ol class="scan-steps" id="scan-steps"></ol>
+            </div>
+          </section>
+
+          <div id="results" class="mt-4" hidden tabindex="-1" aria-labelledby="results-title"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CareerPilot AI · Career & Skill Intelligence</title>
+  <meta name="description" content="CareerPilot AI is an AI-inspired career intelligence interface: analyze your CV and target jobs, see skill gaps, follow a learning roadmap and track applications. Frontend prototype with simulated AI.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module">
+    import { bootLanding } from './js/app.js';
+    bootLanding();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="landing-nav">
+    <div class="landing-nav-inner">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="CareerPilot AI home">
+        <span class="brand-mark"><i data-lucide="compass" aria-hidden="true"></i></span>
+        <span class="brand-name">CareerPilot <span>AI</span></span>
+      </a>
+      <nav aria-label="Landing" class="hidden items-center gap-1 md:flex">
+        <a class="btn btn-ghost btn-sm" href="#features">Features</a>
+        <a class="btn btn-ghost btn-sm" href="#how">How it works</a>
+        <a class="btn btn-ghost btn-sm" href="#prototype">Prototype</a>
+      </nav>
+      <div class="flex items-center gap-1.5">
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle theme"></button>
+        <a href="dashboard.html" class="btn btn-primary btn-sm">Open app<i data-lucide="arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2 lg:gap-8">
+        <div class="stagger">
+          <p class="inline-flex flex-wrap items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1.5 text-xs font-medium text-muted">
+            <span class="badge badge-brand" style="height:20px">Frontend prototype</span> Simulated AI · Your data stays in your browser
+          </p>
+          <h1 id="hero-title" class="hero-title mt-6">Navigate your career with <span class="gradient-text">clarity.</span></h1>
+          <p class="mt-5 max-w-xl text-lg text-muted">CareerPilot AI is an AI-inspired career intelligence interface. Analyze your CV and target jobs, see exactly which skills are missing, follow a 12-week learning roadmap and track every application in one place.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="dashboard.html" class="btn btn-primary"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Open the dashboard</a>
+            <a href="cv-analyzer.html" class="btn btn-secondary"><i data-lucide="file-search" aria-hidden="true"></i>Try the CV analyzer</a>
+          </div>
+          <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+            <li class="flex items-center gap-2"><i data-lucide="user-x" class="h-4 w-4 text-brand" aria-hidden="true"></i>No sign-up</li>
+            <li class="flex items-center gap-2"><i data-lucide="cloud-off" class="h-4 w-4 text-brand" aria-hidden="true"></i>No uploads</li>
+            <li class="flex items-center gap-2"><i data-lucide="database" class="h-4 w-4 text-brand" aria-hidden="true"></i>LocalStorage only</li>
+          </ul>
+        </div>
+
+        <!-- Product mock (illustrative, demo values) -->
+        <div class="hero-mock mx-auto w-full max-w-md py-12 lg:max-w-none" aria-hidden="true">
+          <div class="card card-pad relative mx-auto max-w-sm shadow-2xl" style="box-shadow:var(--shadow-lg)">
+            <div class="flex items-center justify-between">
+              <div><p class="text-xs text-muted">Skill gap · demo</p><p class="font-semibold">Machine Learning Engineer</p></div>
+              <span class="badge badge-brand"><i data-lucide="sparkles" aria-hidden="true"></i>Simulated</span>
+            </div>
+            <div class="mt-5 flex items-center gap-5">
+              <div class="score-ring" style="width:112px;height:112px">
+                <svg width="112" height="112" viewBox="0 0 112 112"><defs><linearGradient id="hero-grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+                  <circle class="ring-track" cx="56" cy="56" r="48" fill="none" stroke-width="10"/>
+                  <circle cx="56" cy="56" r="48" fill="none" stroke="url(#hero-grad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="84.4"/></svg>
+                <div class="ring-label"><strong style="font-size:24px">72%</strong><span>match</span></div>
+              </div>
+              <div class="grid flex-1 gap-2 text-sm">
+                <div class="flex items-center justify-between"><span>🟢 Strong</span><strong>7</strong></div>
+                <div class="flex items-center justify-between"><span>🟡 Partial</span><strong>4</strong></div>
+                <div class="flex items-center justify-between"><span>🔴 Missing</span><strong>3</strong></div>
+              </div>
+            </div>
+            <div class="chip-list mt-5">
+              <span class="chip chip-strong">Python</span><span class="chip chip-strong">Pandas</span><span class="chip chip-partial">SQL</span>
+              <span class="chip chip-partial">TensorFlow</span><span class="chip chip-missing">Docker</span><span class="chip chip-missing">PyTorch</span>
+            </div>
+            <div class="mt-5">
+              <div class="flex justify-between text-xs text-muted"><span>Learning roadmap</span><span>29%</span></div>
+              <div class="progress progress-sm mt-1.5"><div class="progress-bar" style="width:29%"></div></div>
+            </div>
+          </div>
+          <div class="float-card card hidden p-3 sm:block" style="left:0;top:0">
+            <div class="flex items-center gap-2.5"><span class="kpi-icon" style="background:rgb(var(--success)/.15);color:rgb(var(--success))"><i data-lucide="circle-check" aria-hidden="true"></i></span>
+              <div><p class="text-xs text-muted">Week 3 complete</p><p class="text-sm font-semibold">PyTorch foundations</p></div></div>
+          </div>
+          <div class="float-card delay card hidden p-3 sm:block" style="right:0;bottom:0">
+            <div class="flex items-center gap-2.5"><span class="kpi-icon" style="background:rgb(var(--warning)/.15);color:rgb(var(--warning))"><i data-lucide="calendar-check" aria-hidden="true"></i></span>
+              <div><p class="text-xs text-muted">Status → Interview</p><p class="text-sm font-semibold">Nimbus Analytics</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prototype notice -->
+    <section id="prototype" class="mx-auto max-w-6xl scroll-mt-24 px-4" aria-labelledby="prototype-title">
+      <div class="notice reveal">
+        <i data-lucide="flask-conical" aria-hidden="true"></i>
+        <div>
+          <h2 id="prototype-title" class="font-semibold">Prototype notice</h2>
+          <p class="mt-1 text-muted">This is a frontend prototype: no backend, no database, no real authentication and no external AI API. AI analysis is simulated with deterministic, rule-based logic and should not be interpreted as real machine-learning or LLM inference. Data is stored only in your browser's LocalStorage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-20" aria-labelledby="features-title">
+      <div class="max-w-2xl reveal">
+        <p class="eyebrow">Features</p>
+        <h2 id="features-title" class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Everything between "who am I?" and "I got the offer"</h2>
+        <p class="mt-3 text-muted">Eleven connected tools share one career profile, so every analysis builds on the last.</p>
+      </div>
+      <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <li class="reveal"><a href="profile.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="user-round" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Career Profile</h3><p class="mt-1.5 text-sm text-muted">Education, target role, summary and a skills editor with levels.</p></a></li>
+        <li class="reveal"><a href="cv-analyzer.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="file-search" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">CV Analyzer</h3><p class="mt-1.5 text-sm text-muted">Skills, strengths, suggestions and missing sections from pasted text or a sample CV.</p></a></li>
+        <li class="reveal"><a href="job-analyzer.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="briefcase" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Job Analyzer</h3><p class="mt-1.5 text-sm text-muted">Required vs preferred skills, responsibilities, keywords and experience level.</p></a></li>
+        <li class="reveal"><a href="skill-gap.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="target" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Skill Gap</h3><p class="mt-1.5 text-sm text-muted">🟢 strong, 🟡 partial and 🔴 missing skills with a prototype compatibility score.</p></a></li>
+        <li class="reveal"><a href="dashboard.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="radar" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Skill Intelligence</h3><p class="mt-1.5 text-sm text-muted">A 140-skill dictionary across 7 categories powers extraction and your skill profile.</p></a></li>
+        <li class="reveal"><a href="roadmap.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="map" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Career Roadmap</h3><p class="mt-1.5 text-sm text-muted">A 12-week plan with objectives, practice, mini projects and hours.</p></a></li>
+        <li class="reveal"><a href="projects.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="lightbulb" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Project Recommendations</h3><p class="mt-1.5 text-sm text-muted">Portfolio ideas ranked by how many of your gaps they practise.</p></a></li>
+        <li class="reveal"><a href="applications.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="square-kanban" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Application Tracker</h3><p class="mt-1.5 text-sm text-muted">Seven statuses, search, filters, sorting, table and kanban views.</p></a></li>
+        <li class="reveal"><a href="analytics.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="chart-column" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Analytics</h3><p class="mt-1.5 text-sm text-muted">Five charts on applications, conversion, skills and learning.</p></a></li>
+        <li class="reveal"><a href="assistant.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="bot" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">AI Assistant</h3><p class="mt-1.5 text-sm text-muted">A rule-based chat that answers with your own saved data.</p></a></li>
+        <li class="reveal"><a href="settings.html" class="card card-pad card-hover block h-full"><span class="feature-icon"><i data-lucide="settings" aria-hidden="true"></i></span><h3 class="mt-4 font-semibold">Settings</h3><p class="mt-1.5 text-sm text-muted">Theme, motion, demo data, JSON export/import and reset.</p></a></li>
+      </ul>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="border-y border-line bg-surface/40 py-20" aria-labelledby="how-title">
+      <div class="mx-auto max-w-6xl scroll-mt-24 px-4">
+        <div class="max-w-2xl reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title" class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">One flow, from profile to progress</h2>
+          <p class="mt-3 text-muted">The intended product experience, fully clickable in this prototype.</p>
+        </div>
+        <ol class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <li class="flow-step reveal"><span class="flow-num">1</span>Build your career profile</li>
+          <li class="flow-step reveal"><span class="flow-num">2</span>Analyze your CV and extract skills</li>
+          <li class="flow-step reveal"><span class="flow-num">3</span>Paste a target job description</li>
+          <li class="flow-step reveal"><span class="flow-num">4</span>See strong, partial and missing skills</li>
+          <li class="flow-step reveal"><span class="flow-num">5</span>Follow a 12-week learning roadmap</li>
+          <li class="flow-step reveal"><span class="flow-num">6</span>Build recommended portfolio projects</li>
+          <li class="flow-step reveal"><span class="flow-num">7</span>Track applications through 7 statuses</li>
+          <li class="flow-step reveal"><span class="flow-num">8</span>Review career analytics</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="mx-auto max-w-6xl px-4 py-16" aria-labelledby="tech-title">
+      <h2 id="tech-title" class="text-center text-sm font-semibold uppercase tracking-widest text-muted reveal">Built with</h2>
+      <ul class="mt-6 flex flex-wrap justify-center gap-3 reveal">
+        <li class="chip"><i data-lucide="code-xml" aria-hidden="true"></i>HTML5</li>
+        <li class="chip"><i data-lucide="wind" aria-hidden="true"></i>Tailwind CSS</li>
+        <li class="chip"><i data-lucide="braces" aria-hidden="true"></i>Vanilla JavaScript</li>
+        <li class="chip"><i data-lucide="chart-line" aria-hidden="true"></i>Chart.js</li>
+        <li class="chip"><i data-lucide="shapes" aria-hidden="true"></i>Lucide Icons</li>
+        <li class="chip"><i data-lucide="database" aria-hidden="true"></i>LocalStorage</li>
+        <li class="chip"><i data-lucide="container" aria-hidden="true"></i>nginx · Docker</li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="mx-auto max-w-6xl px-4 pb-20" aria-labelledby="cta-title">
+      <div class="card reveal overflow-hidden p-8 text-center sm:p-12" style="background:linear-gradient(135deg, rgb(var(--brand)/.16), rgb(var(--accent)/.10)), rgb(var(--surface))">
+        <h2 id="cta-title" class="text-2xl font-bold tracking-tight sm:text-3xl">Explore it with demo data in one click</h2>
+        <p class="mx-auto mt-3 max-w-xl text-muted">A sample profile, two saved jobs, twelve applications and a roadmap are loaded on your first visit. Switch them off any time in Settings.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="dashboard.html" class="btn btn-primary"><i data-lucide="rocket" aria-hidden="true"></i>Launch CareerPilot AI</a>
+          <a href="https://github.com/Majortarif/CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i data-lucide="code-xml" aria-hidden="true"></i>View source</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted md:flex-row md:items-center md:justify-between">
+      <div>
+        <p><strong class="text-ink">Tariful Hoque</strong> · CSE Graduate | Machine Learning & AI | Data Science | UI/UX</p>
+        <p class="mt-1">This project is created for educational, portfolio, and demonstration purposes. © 2026 Tariful Hoque</p>
+      </div>
+      <nav aria-label="Author links" class="flex flex-wrap gap-4">
+        <a class="link" href="https://github.com/Majortarif" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="link" href="https://www.linkedin.com/in/tariful-hoque-582321259" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="link" href="https://tarifulhoqueportfoloi.netlify.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        <a class="link" href="mailto:tarifulhoque347@gmail.com">Email</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

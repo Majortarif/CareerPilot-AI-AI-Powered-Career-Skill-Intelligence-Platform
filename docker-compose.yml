@@ -1,0 +1,7 @@
+services:
+  web:
+    build: ./frontend
+    container_name: careerpilot-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped

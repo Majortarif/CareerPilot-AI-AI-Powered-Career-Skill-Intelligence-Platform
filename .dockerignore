@@ -1,0 +1,7 @@
+.git
+node_modules
+*.md
+!README.md
+.env
+.DS_Store
+backend

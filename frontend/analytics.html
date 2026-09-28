@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analytics · CareerPilot AI</title>
+  <meta name="description" content="Applications over time, status distribution, skill distribution, learning progress and interview conversion.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/analytics.js"></script>
+</head>
+<body data-page="analytics">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Tracking</p>
+            <h1 class="page-title">Career Analytics</h1>
+            <p class="page-subtitle">How your job search and learning are trending.</p>
+          </div>
+          <div id="data-source"></div>
+        </div>
+
+        <div data-page-body>
+          <section id="summary" class="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-6" aria-label="Summary metrics">
+            <div class="skeleton skeleton-card h-28"></div><div class="skeleton skeleton-card h-28"></div><div class="skeleton skeleton-card h-28"></div>
+            <div class="skeleton skeleton-card h-28"></div><div class="skeleton skeleton-card h-28"></div><div class="skeleton skeleton-card h-28"></div>
+          </section>
+
+          <div class="mt-4 grid gap-4 xl:grid-cols-3">
+            <article class="card card-pad reveal xl:col-span-2">
+              <div class="card-header"><div><h2 class="card-title">Applications over time</h2><p class="card-subtitle">Submitted per week (last 12 weeks) and cumulative total</p></div><span data-src="applications"></span></div>
+              <div id="c-time" class="chart-box chart-box-lg"><div class="skeleton h-full"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Status distribution</h2><p class="card-subtitle">Current status of every application</p></div><span data-src="applications"></span></div>
+              <div id="c-status" class="chart-box chart-box-lg"><div class="skeleton h-full"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Interview conversion</h2><p class="card-subtitle">Share of applications reaching each stage</p></div><span data-src="applications"></span></div>
+              <div id="c-funnel" class="chart-box"><div class="skeleton h-full"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Skill distribution</h2><p class="card-subtitle">Skills per category by level band</p></div><span data-src="skills"></span></div>
+              <div id="c-skills" class="chart-box"><div class="skeleton h-full"></div></div>
+            </article>
+            <article class="card card-pad reveal">
+              <div class="card-header"><div><h2 class="card-title">Learning progress</h2><p class="card-subtitle">Roadmap hours per week</p></div><span data-src="roadmap"></span></div>
+              <div id="c-learning" class="chart-box"><div class="skeleton h-full"></div></div>
+            </article>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

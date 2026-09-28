@@ -1,0 +1,7 @@
+# Build context is ./frontend (the root .dockerignore does not apply to it).
+# Dockerfile and .dockerignore are still sent to the builder but not copied into the image.
+Dockerfile
+.dockerignore
+**/*.md
+.DS_Store
+Thumbs.db

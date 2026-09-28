@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Analyzer · CareerPilot AI</title>
+  <meta name="description" content="Turn a job description into required skills, preferred skills, responsibilities and keywords.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/job-analyzer.js"></script>
+</head>
+<body data-page="job-analyzer">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Career</p>
+            <h1 class="page-title">Job Description Analyzer</h1>
+            <p class="page-subtitle">Paste a job post to extract required and preferred skills, technologies, responsibilities and experience level.</p>
+          </div>
+        </div>
+
+        <div class="notice mb-4" role="note">
+          <i data-lucide="info" aria-hidden="true"></i>
+          <p><strong>Simulated analysis.</strong> <span class="text-muted">Skills are matched against a built-in dictionary; "required" vs "preferred" is decided by section headings and cue words such as "must" or "nice to have".</span></p>
+        </div>
+
+        <div data-page-body class="grid gap-4 xl:grid-cols-3">
+          <section class="card card-pad xl:col-span-2" aria-labelledby="form-title">
+            <div class="card-header flex-wrap">
+              <div><h2 class="card-title" id="form-title">Job details</h2><p class="card-subtitle">Fields marked * are required.</p></div>
+              <div class="w-full sm:w-72">
+                <label for="sample-select" class="sr-only">Load a sample job description</label>
+                <select class="select w-full" id="sample-select"></select>
+              </div>
+            </div>
+            <form id="job-form" class="grid gap-4" novalidate>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="field">
+                  <label class="label" for="title">Job title <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="title" name="title" required aria-required="true" placeholder="e.g. Machine Learning Engineer" aria-describedby="err-title" autocomplete="off">
+                  <p class="field-error" id="err-title" data-error-for="title"></p>
+                </div>
+                <div class="field">
+                  <label class="label" for="company">Company</label>
+                  <input class="input" id="company" name="company" placeholder="e.g. Nimbus Analytics" autocomplete="organization">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" for="description">Job description <span class="req" aria-hidden="true">*</span></label>
+                <textarea class="textarea" id="description" name="description" required aria-required="true" style="min-height:280px" placeholder="Paste the full job description, including requirements and nice-to-haves…" aria-describedby="desc-hint err-description"></textarea>
+                <p class="hint" id="desc-hint"><span id="desc-count">0</span> characters · minimum 80</p>
+                <p class="field-error" id="err-description" data-error-for="description"></p>
+              </div>
+              <div class="flex flex-wrap justify-end gap-2">
+                <button type="reset" class="btn btn-ghost"><i data-lucide="eraser" aria-hidden="true"></i>Clear</button>
+                <button type="submit" class="btn btn-primary" id="analyze-btn"><i data-lucide="scan-search" aria-hidden="true"></i>Analyze job</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="card card-pad" aria-labelledby="saved-title">
+            <div class="card-header">
+              <div><h2 class="card-title" id="saved-title">Saved jobs</h2><p class="card-subtitle">The active job drives Skill Gap and Roadmap.</p></div>
+              <span class="badge" id="saved-count">0</span>
+            </div>
+            <div id="saved-jobs"><div class="skeleton h-16"></div><div class="skeleton mt-3 h-16"></div></div>
+          </section>
+
+          <div id="results" class="xl:col-span-3" hidden tabindex="-1"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Assistant · CareerPilot AI</title>
+  <meta name="description" content="A simulated, rule-based career assistant that answers using your saved data.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/theme-init.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="js/assistant.js"></script>
+</head>
+<body data-page="assistant">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="app-main">
+      <header id="topbar" class="topbar"></header>
+      <main id="main" class="page" tabindex="-1">
+        <div class="page-header">
+          <div>
+            <p class="eyebrow">Assist</p>
+            <h1 class="page-title flex flex-wrap items-center gap-3">AI Assistant <span class="badge badge-brand"><i data-lucide="sparkles" aria-hidden="true"></i>Simulated · rule-based</span></h1>
+            <p class="page-subtitle">Ask about your skill gaps, roadmap, CV, interviews, applications or project ideas.</p>
+          </div>
+          <button type="button" class="btn btn-ghost" id="clear-chat"><i data-lucide="eraser" aria-hidden="true"></i>Clear chat</button>
+        </div>
+
+        <div data-page-body class="grid gap-4 xl:grid-cols-3">
+          <section class="card xl:col-span-2 overflow-hidden" aria-label="Chat">
+            <div class="chat">
+              <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation">
+                <div class="skeleton h-16 w-2/3"></div><div class="skeleton ml-auto h-10 w-1/2"></div><div class="skeleton h-24 w-3/4"></div>
+              </div>
+              <div class="flex gap-2 overflow-x-auto px-4 pb-3" id="chips" aria-label="Suggested questions"></div>
+              <form class="chat-composer" id="composer" autocomplete="off">
+                <label for="message" class="sr-only">Message</label>
+                <input class="input" id="message" name="message" maxlength="500" placeholder="Ask me something…" enterkeyhint="send">
+                <button type="submit" class="btn btn-primary" id="send-btn" aria-label="Send message"><i data-lucide="send-horizontal" aria-hidden="true"></i><span class="hidden sm:inline">Send</span></button>
+              </form>
+            </div>
+          </section>
+
+          <aside class="grid min-w-0 grid-cols-1 content-start gap-4" aria-label="Assistant context">
+            <section class="card card-pad">
+              <div class="notice notice-warning"><i data-lucide="flask-conical" aria-hidden="true"></i>
+                <p><strong>No language model is used.</strong> <span class="text-muted">Replies come from keyword intent matching and templates filled with the data saved in this browser.</span></p></div>
+            </section>
+            <section class="card card-pad" id="context-card" aria-labelledby="ctx-title">
+              <h2 class="card-title" id="ctx-title">What I know about you</h2>
+              <div class="skeleton mt-4 h-24"></div>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Quick navigation"></nav>
+</body>
+</html>
