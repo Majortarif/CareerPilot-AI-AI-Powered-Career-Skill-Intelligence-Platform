@@ -281,6 +281,9 @@ CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform/
 ├── .gitignore
 ├── .dockerignore
 ├── docker-compose.yml
+├── .github/
+│   └── workflows/
+│       └── pages.yml          # GitHub Pages deployment of frontend/
 └── frontend/
     ├── Dockerfile
     ├── nginx.conf
@@ -373,7 +376,9 @@ flowchart LR
 | Build command | _(none)_ |
 | Output directory | `frontend` |
 
-Also works on **Netlify**, **GitHub Pages**, **Vercel (static)** or **Docker/nginx** on a VPS (put an HTTPS reverse proxy such as Caddy or nginx + Certbot in front of port 8080).
+**Current setup: GitHub Pages.** The workflow in `.github/workflows/pages.yml` publishes `frontend/` on every push to `main` (repo Settings → Pages → Source: GitHub Actions).
+
+Also works on **Netlify**, **Vercel (static)** or **Docker/nginx** on a VPS (put an HTTPS reverse proxy such as Caddy or nginx + Certbot in front of port 8080).
 
 Live URL: `YOUR_LIVE_DEMO_URL` (not deployed yet).
 

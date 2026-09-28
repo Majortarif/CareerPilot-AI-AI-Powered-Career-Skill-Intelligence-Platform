@@ -65,6 +65,7 @@ HTML page ─▶ page module (e.g. dashboard.js)
 | **nginx: security headers repeated in the static-asset location** | nginx does not inherit `add_header` into a location that defines its own `add_header`, so CSS/JS would otherwise ship without the security headers. |
 | **nginx: 404 for `/nginx.conf`, `/Dockerfile`, `/.dockerignore`** | `COPY . /usr/share/nginx/html` would otherwise publish the server config. |
 | **Extra fields inside existing keys** (`profile.lastCv`, `settings.activeJobId`, `settings.motion`, `settings.applicationsView`) | Needed for features; no new top-level keys were added, so the documented key table stays accurate. |
+| **Added `.github/workflows/pages.yml` (GitHub Actions → GitHub Pages)** | GitHub Pages is one of the static hosts listed in CLAUDE.md section 10. Pages can only serve the repo root or `/docs`, so a small official-actions workflow publishes `frontend/` instead. |
 | **`.claude/` added to `.gitignore`** | Local tooling config (dev-server launcher) that does not belong in the repo. |
 
 No other technologies were added.
