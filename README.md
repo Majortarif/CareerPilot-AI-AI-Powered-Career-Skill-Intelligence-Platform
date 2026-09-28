@@ -16,7 +16,7 @@
   <img alt="Frontend Prototype" src="https://img.shields.io/badge/Frontend_Prototype-6366F1?style=for-the-badge">
 </p>
 
-**[🌐 Live Demo](YOUR_LIVE_DEMO_URL)** &nbsp;·&nbsp; **[📂 View Source](https://github.com/Majortarif/CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform)**
+**[🌐 Live Demo](https://majortarif.github.io/CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform/)** &nbsp;·&nbsp; **[📂 View Source](https://github.com/Majortarif/CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform)**
 
 </div>
 
@@ -380,7 +380,7 @@ flowchart LR
 
 Also works on **Netlify**, **Vercel (static)** or **Docker/nginx** on a VPS (put an HTTPS reverse proxy such as Caddy or nginx + Certbot in front of port 8080).
 
-Live URL: `YOUR_LIVE_DEMO_URL` (not deployed yet).
+Live URL: https://majortarif.github.io/CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform/
 
 ## Limitations
 
@@ -464,7 +464,7 @@ Checked in a Chromium-based browser during development. Docker items could not b
 
 ## 🌐 Live Demo
 
-[🚀 Open CareerPilot AI](YOUR_LIVE_DEMO_URL)
+[🚀 Open CareerPilot AI](https://majortarif.github.io/CareerPilot-AI-AI-Powered-Career-Skill-Intelligence-Platform/)
 
 ## Author
 
